@@ -1,12 +1,8 @@
 package com.example.mehdidjo.myapplication2.model;
 
-import android.provider.Settings;
-
 import com.stfalcon.chatkit.commons.models.IMessage;
-import com.stfalcon.chatkit.commons.models.IUser;
 import com.stfalcon.chatkit.commons.models.MessageContentType;
 
-import java.text.DateFormat;
 import java.util.Date;
 
 /**
@@ -15,18 +11,18 @@ import java.util.Date;
 
 public class Message implements IMessage ,  MessageContentType.Image {
 
-    private String message;
+    private String text;
     private String id;
     private Date date;
-    private Author author;
+    private User user;
     private Image image;
 
 
 
-    public Message(String message, String id , Author author) {
-        this.message = message;
+    public Message(String message, String id , User user) {
+        this.text = message;
         this.id = id;
-        this.author = author;
+        this.user = user;
         this.date = new Date();
     }
 
@@ -38,12 +34,12 @@ public class Message implements IMessage ,  MessageContentType.Image {
 
     @Override
     public String getText() {
-        return message;
+        return text;
     }
 
     @Override
-    public Author getUser() {
-        return author;
+    public User getUser() {
+        return user;
     }
 
     @Override

@@ -6,12 +6,12 @@ import com.stfalcon.chatkit.commons.models.IUser;
  * Created by Mehdi Djo on 12/02/2018.
  */
 
-public class Author implements IUser {
+public class User implements IUser {
 
     private String id;
     private String name;
 
-    public Author(String id, String name) {
+    public User(String id, String name) {
         this.id = id;
         this.name = name;
     }
