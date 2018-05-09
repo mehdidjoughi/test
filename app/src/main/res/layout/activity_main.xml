@@ -5,19 +5,39 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:chatview="http://schemas.android.com/apk/res-auto"
-    tools:context="com.example.mehdidjo.myapplication2.MainActivity">
+    tools:context="com.example.mehdidjo.myapplication2.ChatActivity">
 
-    <RelativeLayout
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/coordinatorLayout2"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
+
+    <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white">
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="4dp"
+            app:subtitleTextColor="@color/white"
+            app:titleTextColor="@color/white"
+            android:background="@color/colorPrimary">
+
+        </android.support.v7.widget.Toolbar>
+
+
 
         <com.stfalcon.chatkit.messages.MessagesList
             android:id="@+id/messagesList"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:layout_above="@+id/input"
             app:dateHeaderFormat="dd MMMM yyyy"
             app:incomingDefaultBubbleColor="@color/ivory"
@@ -54,5 +74,6 @@
             app:inputHint="Ecrire un message"
             app:showAttachmentButton="true"/>
 
-    </RelativeLayout>
+    </LinearLayout>
+    </android.support.design.widget.CoordinatorLayout>
 </android.support.constraint.ConstraintLayout>

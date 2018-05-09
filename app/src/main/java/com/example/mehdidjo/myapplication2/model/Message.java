@@ -1,5 +1,6 @@
 package com.example.mehdidjo.myapplication2.model;
 
+import com.google.firebase.database.Exclude;
 import com.stfalcon.chatkit.commons.models.IMessage;
 import com.stfalcon.chatkit.commons.models.MessageContentType;
 
@@ -13,17 +14,27 @@ public class Message implements IMessage ,  MessageContentType.Image {
 
     private String text;
     private String id;
-    private Date date;
-    private User user;
-    private Image image;
+    private Date createdAt;
+    private Author author;
+    private Image imageurl;
 
 
+    public Message(){}
+//    public  Date(){}
+//    public IMessage(){}
 
-    public Message(String message, String id , User user) {
+    public Message(String message, String id , Author author) {
         this.text = message;
         this.id = id;
-        this.user = user;
-        this.date = new Date();
+        this.author = author;
+        this.createdAt = new Date();
+    }
+
+    public Message(String message, String id , Author author , Date date) {
+        this.text = message;
+        this.id = id;
+        this.author = author;
+        //this.date = date;
     }
 
 
@@ -37,31 +48,38 @@ public class Message implements IMessage ,  MessageContentType.Image {
         return text;
     }
 
+
+    @Exclude
     @Override
-    public User getUser() {
-        return user;
+    public Author getUser() {
+        return author;
     }
 
     @Override
     public Date getCreatedAt() {
-        return date;
+        return createdAt;
     }
 
     @Override
     public String getImageUrl() {
-        return image == null ? null : image.url;
+        return imageurl == null ? null : imageurl.url;
     }
 
-    public void setImage(Image image) {
-        this.image = image;
+    public void setImageUrl(Image image) {
+        this.imageurl = image;
+    }
+
+    public void setDate() {
+        this.createdAt = new Date();
     }
 
     public static class Image {
-
         private String url;
-
         public Image(String url) {
             this.url = url;
         }
+    }
+    public Author getAuthor() {
+        return author;
     }
 }
